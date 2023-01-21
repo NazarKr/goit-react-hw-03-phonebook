@@ -31,7 +31,7 @@ export class App extends Component {
   };
 
   formSubmit = data => {
-    console.log(data)
+    // console.log(data)
   }
 
   render() {
