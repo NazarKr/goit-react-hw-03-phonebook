@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FormicContact from './FormContact/FormicContact';
 import ContactsList from './ContactList/ContactsList';
-// import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid'
 
 export class App extends Component {
   state = {
@@ -12,17 +12,9 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    // name: '',
-    // number: ''
+    name: '',
+    number: ''
   }
-
-  // addContact = e => { 
-  //   // const contact = this.state;
-  //   // console.log(contact);
-  //   this.setState(({ contacts }) => ({
-  //     contacts: [contact, ...contacts]
-  //   }))
-  // };
 
   deleteContact = contactId => {
     this.setState(prevState => ({
@@ -30,9 +22,20 @@ export class App extends Component {
     }));
   };
 
-  formSubmit = data => {
-    console.log(data)
+  addContact = ({ name, number }) => {
+    const contact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+
+    this.setState(({ contacts }) => ({
+      contacts: [contact, ...contacts],
+    }))
+      //  console.log(name, number)
   }
+
+
 
   render() {
     const { contacts } = this.state;
@@ -41,7 +44,7 @@ export class App extends Component {
       <div>
         <h1>Phonebook</h1>
 
-        <FormicContact onSubmit={this.formSubmit} />
+        <FormicContact onSubmit={this.addContact} />
         <ContactsList
           contacts={contacts}
           onDeleteContact={this.deleteContact}

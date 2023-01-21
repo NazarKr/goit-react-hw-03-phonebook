@@ -7,7 +7,6 @@ import { nanoid } from 'nanoid'
 
 class FormicContact extends Component {
     state = {
-        id: '',
         name: '',
         number: ''
     }
