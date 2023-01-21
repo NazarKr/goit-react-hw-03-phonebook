@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormContact from './FormContact/FormContact';
+import FormicContact from './FormContact/FormicContact';
 import ContactsList from './ContactList/ContactsList';
 // import { nanoid } from 'nanoid'
 
@@ -31,7 +31,7 @@ export class App extends Component {
   };
 
   formSubmit = data => {
-    // console.log(data)
+    console.log(data)
   }
 
   render() {
@@ -41,7 +41,7 @@ export class App extends Component {
       <div>
         <h1>Phonebook</h1>
 
-        <FormContact onSubmit={this.formSubmit} />
+        <FormicContact onSubmit={this.formSubmit} />
         <ContactsList
           contacts={contacts}
           onDeleteContact={this.deleteContact}
