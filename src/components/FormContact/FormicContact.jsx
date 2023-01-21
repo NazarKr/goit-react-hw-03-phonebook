@@ -14,19 +14,19 @@ class FormicContact extends Component {
     nameId = nanoid();
     numberId = nanoid();
 
-    reset = () => {
-        this.setState({ name: '', number: '' })
-    };
+
 
 
     render() {
         return (
             <Formik
                 initialValues={this.state}
-                onSubmit={async (values) => {
+                onSubmit={async (values, { resetForm }) => {
                     await new Promise((r) => setTimeout(r, 500));
                     // alert(JSON.stringify(values, null, 2));
                     this.props.onSubmit(values);
+                    resetForm();
+                    
                 }}
             >
                 <Form>
@@ -50,7 +50,7 @@ class FormicContact extends Component {
                         required
                     />
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Add contact</button>
                 </Form>
             </Formik>
         )

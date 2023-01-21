@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FilterContact from './FilterContacts/FilterContacts';
 import FormicContact from './FormContact/FormicContact';
 import ContactsList from './ContactList/ContactsList';
 import { nanoid } from 'nanoid'
@@ -11,9 +12,7 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    filter: '',
-    name: '',
-    number: ''
+    filter: ''
   }
 
   deleteContact = contactId => {
@@ -32,21 +31,55 @@ export class App extends Component {
     this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
     }))
-      //  console.log(name, number)
-  }
 
+    // const checkName = (name) => {
+    //   if (contact[name]) {
+    //     console.log(name + "is in")
+    //   } else {
+    //     console.log(name + "is not")
+    //   }
+    // }
+
+    //  this.setState(prevState => {
+    //   if (!contactNames.includes(contact.name)) {
+    //     return {
+    //       contacts: [contact, ...prevState.contacts],
+    //     };
+    //   } else {
+    //     alert(`${contact.name} has already added in contacts`);
+    //     return { contacts: [...prevState.contacts] };
+    //   }
+    // });
+    //  console.log(name, number)
+  };
+
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
+  getVisibleContacts = () => {
+    const { contacts, filter } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
 
 
   render() {
-    const { contacts } = this.state;
+    const { filter } = this.state;
+    const visibleContacts = this.getVisibleContacts();
 
     return (
       <div>
         <h1>Phonebook</h1>
-
         <FormicContact onSubmit={this.addContact} />
+
+        <h2>Contacts</h2>
+        <FilterContact value={filter} onChange={this.changeFilter} />
+
         <ContactsList
-          contacts={contacts}
+          contacts={visibleContacts}
           onDeleteContact={this.deleteContact}
         />
 
