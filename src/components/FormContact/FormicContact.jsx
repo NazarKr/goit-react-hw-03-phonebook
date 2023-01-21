@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Field, Form } from 'formik';
+import { FormContainer, Label, MyField, Button } from './FormicContact.styled';
 import { nanoid } from 'nanoid'
-
-
-// const id = nanoid()
 
 class FormicContact extends Component {
     state = {
@@ -14,24 +12,27 @@ class FormicContact extends Component {
     nameId = nanoid();
     numberId = nanoid();
 
-
-
-
     render() {
         return (
+            <FormContainer>
             <Formik
                 initialValues={this.state}
                 onSubmit={async (values, { resetForm }) => {
                     await new Promise((r) => setTimeout(r, 500));
-                    // alert(JSON.stringify(values, null, 2));
                     this.props.onSubmit(values);
                     resetForm();
                     
                 }}
             >
-                <Form>
-                    <label htmlFor={this.nameId}>Name</label>
+                    <Form
+                        style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center"}}
+                    >
+                    <Label htmlFor={this.nameId}>Name</Label>
                     <Field
+                        as={MyField}
                         id={this.nameId}
                         name="name"
                         placeholder="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -40,8 +41,9 @@ class FormicContact extends Component {
                         required
                     />
 
-                    <label htmlFor={this.numberId}>Number</label>
+                    <Label htmlFor={this.numberId}>Number</Label>
                     <Field
+                        as={MyField}
                         id={this.numberId}
                         name="number"
                         placeholder="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -50,12 +52,12 @@ class FormicContact extends Component {
                         required
                     />
 
-                    <button type="submit">Add contact</button>
+                    <Button type="submit">Add contact</Button>
                 </Form>
-            </Formik>
+                </Formik>
+            </FormContainer>
         )
     }
-
 }
 
 export default FormicContact;

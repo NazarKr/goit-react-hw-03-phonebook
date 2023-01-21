@@ -28,29 +28,29 @@ export class App extends Component {
       number,
     };
 
-    this.setState(({ contacts }) => ({
-      contacts: [contact, ...contacts],
-    }))
+    const contactNames = this.getContactNames();
 
-    // const checkName = (name) => {
-    //   if (contact[name]) {
-    //     console.log(name + "is in")
-    //   } else {
-    //     console.log(name + "is not")
-    //   }
-    // }
+    // this.setState(({ contacts }) => ({
+    //   contacts: [contact, ...contacts],
+    // }))
 
-    //  this.setState(prevState => {
-    //   if (!contactNames.includes(contact.name)) {
-    //     return {
-    //       contacts: [contact, ...prevState.contacts],
-    //     };
-    //   } else {
-    //     alert(`${contact.name} has already added in contacts`);
-    //     return { contacts: [...prevState.contacts] };
-    //   }
-    // });
-    //  console.log(name, number)
+    this.setState(({ contacts }) => {
+      if (!contactNames.includes(contact.name)) {
+        return {
+          contacts: [contact, ...contacts],
+        };
+      } else {
+        alert(`${contact.name} has already added in contacts`);
+        return { contacts: [...contacts] };
+      }
+     });
+    
+    //  console.log(contactNames)
+  };
+
+  getContactNames = () => {
+    const { contacts } = this.state;
+    return contacts.map(contact => contact.name);
   };
 
   changeFilter = e => {
@@ -64,7 +64,6 @@ export class App extends Component {
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
-
 
   render() {
     const { filter } = this.state;
