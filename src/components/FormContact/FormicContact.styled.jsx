@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
 
 export const FormContainer = styled.div`
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-shadow: 0px 0px 20px -20px;
 `;
 
 export const Label = styled.label`
@@ -19,6 +20,7 @@ export const MyField = styled.input`
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    box-shadow: 0px 0px 20px -20px;
     width: 100%;
 `;
 
@@ -33,5 +35,9 @@ export const Button = styled.button`
     cursor: pointer;
     &:hover {
         background-color: gray;
+        box-shadow: 0px 0px 20px -18px;
+    }
+    &:active {
+    transform: scale(0.95);
     }
 `;

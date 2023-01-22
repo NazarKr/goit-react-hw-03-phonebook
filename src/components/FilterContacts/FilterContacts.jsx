@@ -17,6 +17,7 @@ const Filter = ({ value, onChange }) => (
                     <Field
                         as={MyField}
                         type="text"
+                        placeholder="Search"
                         value={value}
                         onChange={onChange} />
                 </Label>

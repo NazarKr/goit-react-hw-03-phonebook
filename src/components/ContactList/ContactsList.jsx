@@ -1,19 +1,23 @@
 import React from 'react';
+import { ContactListUl, ContactItemLi, ContactName } from './ContactsList.styled'
+import { Button } from '../FormContact/FormicContact.styled'
 
 
 const ContactsList = ({ contacts, onDeleteContact }) => {
     return (
-        <ul>
+        <ContactListUl>
             {contacts.map(({ id, name, number }) => (
-                <li key={id}>
-                    <p>{name}</p>
-                    <p>{number}</p>
-                    <button
+                <ContactItemLi key={id}>
+                    <ContactName>{name}</ContactName>
+                    <ContactName>{number}</ContactName>
+                    <Button
                         type="submit"
                         onClick={() => onDeleteContact(id)}
-                    >Delete</button>
-                </li>))}
-        </ul>
+                    >
+                        Delete
+                    </Button>
+                </ContactItemLi>))}
+        </ContactListUl>
     );
 };
 

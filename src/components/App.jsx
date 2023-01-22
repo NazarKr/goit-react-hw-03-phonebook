@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FilterContact from './FilterContacts/FilterContacts';
 import FormicContact from './FormContact/FormicContact';
 import ContactsList from './ContactList/ContactsList';
+import { PhoneBookDiv, PhoneBookH1, PhoneBookH2 } from './App.styled'
 import { nanoid } from 'nanoid'
 
 export class App extends Component {
@@ -70,11 +71,11 @@ export class App extends Component {
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <PhoneBookDiv>
+        <PhoneBookH1>Phonebook</PhoneBookH1>
         <FormicContact onSubmit={this.addContact} />
 
-        <h2>Contacts</h2>
+        <PhoneBookH2>Contacts</PhoneBookH2>
         <FilterContact value={filter} onChange={this.changeFilter} />
 
         <ContactsList
@@ -82,7 +83,7 @@ export class App extends Component {
           onDeleteContact={this.deleteContact}
         />
 
-      </div>
+      </PhoneBookDiv>
     )
   };
 };
