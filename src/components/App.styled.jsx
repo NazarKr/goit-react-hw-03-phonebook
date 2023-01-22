@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 
 export const PhoneBookDiv = styled.div`
-    width: 50%;
     margin: 10px auto;
     padding: 10px;
     border: 1px solid #ccc;
@@ -10,6 +9,9 @@ export const PhoneBookDiv = styled.div`
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 0px 20px -20px;
+    @media(min-width: 720px) {
+        width: 50%;
+      }
 `
 
 export const PhoneBookH1 = styled.h1`

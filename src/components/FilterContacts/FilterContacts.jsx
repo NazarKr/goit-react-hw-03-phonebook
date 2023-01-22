@@ -1,10 +1,10 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
-import { FormContainer, Label, MyField, } from '../FormContact/FormicContact.styled';
+import { FilterContainer, FilterLabel, FilterField, } from './FilterContact.styled';
 import PropTypes from 'prop-types';
 
 const Filter = ({ value, onChange }) => (
-    <FormContainer>
+    <FilterContainer>
         <Formik>
             <Form
                 style={{
@@ -12,18 +12,18 @@ const Filter = ({ value, onChange }) => (
                     flexDirection: "column",
                     alignItems: "center"
                 }}>
-        <Label>
+        <FilterLabel>
             Find contacts by name
                     <Field
-                        as={MyField}
+                        as={FilterField}
                         type="text"
                         placeholder="Search"
                         value={value}
                         onChange={onChange} />
-                </Label>
+                </FilterLabel>
         </Form>
         </Formik>
-    </FormContainer>
+    </FilterContainer>
 );
 
 export default Filter;
