@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import { FormContainer, Label, MyField, } from '../FormContact/FormicContact.styled';
-
+import PropTypes from 'prop-types';
 
 const Filter = ({ value, onChange }) => (
     <FormContainer>
@@ -27,3 +27,7 @@ const Filter = ({ value, onChange }) => (
 );
 
 export default Filter;
+
+Filter.propTypes = {
+    value:  PropTypes.string.isRequired,
+}

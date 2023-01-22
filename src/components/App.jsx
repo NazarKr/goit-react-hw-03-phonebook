@@ -4,6 +4,7 @@ import FormicContact from './FormContact/FormicContact';
 import ContactsList from './ContactList/ContactsList';
 import { PhoneBookDiv, PhoneBookH1, PhoneBookH2 } from './App.styled'
 import { nanoid } from 'nanoid'
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -45,8 +46,6 @@ export class App extends Component {
         return { contacts: [...contacts] };
       }
      });
-    
-    //  console.log(contactNames)
   };
 
   getContactNames = () => {
@@ -87,3 +86,11 @@ export class App extends Component {
     )
   };
 };
+
+App.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+  })),
+}
