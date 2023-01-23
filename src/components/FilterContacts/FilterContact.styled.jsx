@@ -7,6 +7,9 @@ export const FilterContainer = styled.div`
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0px 0px 20px -20px;
+        &:hover {
+        border: 2px solid #ccc;
+        }
 `;
 
 export const FilterLabel = styled.label`

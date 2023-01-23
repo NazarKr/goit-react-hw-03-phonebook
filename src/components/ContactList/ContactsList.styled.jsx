@@ -19,6 +19,10 @@ export const ContactItemLi = styled.li`
   border-radius: 5px;
   box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        &:hover {
+        background-color: lightgray;
+        box-shadow: 0px 0px 20px -18px;
+        }
 `;
 
 export const ContactName = styled.p`
