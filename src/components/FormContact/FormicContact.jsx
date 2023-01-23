@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Field, Form } from 'formik';
-import { FormContainer, Label, MyField, Button } from './FormicContact.styled';
+import { FormContainer, Label, MyField } from './FormicContact.styled';
+import Button from '../Buttons/Button';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
@@ -52,7 +53,7 @@ class FormicContact extends Component {
                             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                             required
                         />
-                        <Button type="submit">Add contact</Button>
+                        <Button type="submit" text="+ Add contact"></Button>
                     </Form>
                 </Formik>
             </FormContainer>

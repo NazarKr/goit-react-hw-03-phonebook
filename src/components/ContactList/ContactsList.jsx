@@ -1,6 +1,6 @@
 import React from 'react';
-import { ContactListUl, ContactItemLi, ContactName } from './ContactsList.styled'
-import { Button } from '../FormContact/FormicContact.styled'
+import { ContactListUl, ContactItemLi, ContactName } from './ContactsList.styled';
+import Button  from '../Buttons/Button';
 import PropTypes from 'prop-types';
 
 const ContactsList = ({ contacts, onDeleteContact }) => {
@@ -11,10 +11,10 @@ const ContactsList = ({ contacts, onDeleteContact }) => {
                     <ContactName>{name}</ContactName>
                     <ContactName>{number}</ContactName>
                     <Button
+                        text="Delete"
                         type="submit"
                         onClick={() => onDeleteContact(id)}
                     >
-                        Delete
                     </Button>
                 </ContactItemLi>))}
         </ContactListUl>

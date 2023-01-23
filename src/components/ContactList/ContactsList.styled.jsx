@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const ContactListUl = styled.ul`
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 85%;
   text-align: center;
   margin-top: 20px;
   border-radius: 5px;
