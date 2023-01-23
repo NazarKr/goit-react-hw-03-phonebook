@@ -3,8 +3,9 @@ import FilterContact from './FilterContacts/FilterContacts';
 import FormicContact from './FormContact/FormicContact';
 import ContactsList from './ContactList/ContactsList';
 import { PhoneBookDiv, PhoneBookH1, PhoneBookH2 } from './App.styled'
+import { ToastContainer, toast, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid'
-import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -17,12 +18,6 @@ export class App extends Component {
     filter: ''
   }
 
-  deleteContact = contactId => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
-    }));
-  };
-
   addContact = ({ name, number }) => {
     const contact = {
       id: nanoid(),
@@ -30,28 +25,22 @@ export class App extends Component {
       number,
     };
 
-    const contactNames = this.getContactNames();
-
-    // this.setState(({ contacts }) => ({
-    //   contacts: [contact, ...contacts],
-    // }))
-
-    this.setState(({ contacts }) => {
-      if (contactNames.includes(contact.name)) {
-        alert(`${contact.name} has already added in contacts`);
-      } else {
-        return {
-          contacts: [contact, ...contacts],
-        };
-        // alert(`${contact.name} has already added in contacts`);
-        // return { contacts: [...contacts] };
-      }
-     });
+    if (this.state.contacts.find(contact => contact.name === name)) {
+      toast.error(`Sorry, ${name} is already in contacts.`);
+      return;
+    } else {
+      this.setState(({ contacts }) => ({
+        contacts: [contact, ...contacts],
+      }));
+    }
+    toast.success('Contact successfully added!');
   };
 
-  getContactNames = () => {
-    const { contacts } = this.state;
-    return contacts.map(contact => contact.name);
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+    toast.info('Contact was deleted');
   };
 
   changeFilter = e => {
@@ -82,16 +71,15 @@ export class App extends Component {
           contacts={visibleContacts}
           onDeleteContact={this.deleteContact}
         />
-
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar
+          transition={Zoom}
+          draggable
+          Transition="zoom"/>
       </PhoneBookDiv>
     )
+    
   };
 };
-
-App.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  })),
-}
