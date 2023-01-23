@@ -1,12 +1,13 @@
 import React from 'react';
 import { ButtonStyled } from './Button.style'
+import PropTypes from 'prop-types';
 
-const Button = ({ type, disabled, text, onClick }) => {
+
+const Button = ({ type, text, onClick }) => {
     return (
         <>
             <ButtonStyled
                 type={type}
-                disabled={disabled}
                 onClick={onClick}
             >{text}</ButtonStyled>
         </>
@@ -14,3 +15,8 @@ const Button = ({ type, disabled, text, onClick }) => {
 }
 
 export default Button;
+
+Button.propTypes = {
+    type: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+};

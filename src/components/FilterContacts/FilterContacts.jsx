@@ -3,7 +3,7 @@ import { Formik, Field, Form } from 'formik';
 import { FilterContainer, FilterLabel, FilterField, } from './FilterContact.styled';
 import PropTypes from 'prop-types';
 
-const Filter = ({ value, onChange }) => (
+const Filter = ({ value, onChange, handleBlur }) => (
     <FilterContainer>
         <Formik>
             <Form
@@ -12,9 +12,10 @@ const Filter = ({ value, onChange }) => (
                     flexDirection: "column",
                     alignItems: "center"
                 }}>
-        <FilterLabel>
+                <FilterLabel>
             Find contacts by name
                     <Field
+                        onBlur={handleBlur}
                         as={FilterField}
                         type="text"
                         placeholder="Search"
@@ -29,5 +30,7 @@ const Filter = ({ value, onChange }) => (
 export default Filter;
 
 Filter.propTypes = {
-    value:  PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired, 
+    handleBlur: PropTypes.func,
 }

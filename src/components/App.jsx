@@ -6,7 +6,6 @@ import { PhoneBookDiv, PhoneBookH1, PhoneBookH2 } from './App.styled'
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid'
-import PropTypes from 'prop-types';
 
 export class App extends Component {
   state = {
@@ -41,7 +40,7 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
-    toast.info('Contact was deleted!');
+    toast.info('Contact was deleted');
   };
 
   changeFilter = e => {
@@ -84,11 +83,3 @@ export class App extends Component {
     
   };
 };
-
-App.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  })),
-}
