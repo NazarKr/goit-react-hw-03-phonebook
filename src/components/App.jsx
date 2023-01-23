@@ -37,13 +37,14 @@ export class App extends Component {
     // }))
 
     this.setState(({ contacts }) => {
-      if (!contactNames.includes(contact.name)) {
+      if (contactNames.includes(contact.name)) {
+        alert(`${contact.name} has already added in contacts`);
+      } else {
         return {
           contacts: [contact, ...contacts],
         };
-      } else {
-        alert(`${contact.name} has already added in contacts`);
-        return { contacts: [...contacts] };
+        // alert(`${contact.name} has already added in contacts`);
+        // return { contacts: [...contacts] };
       }
      });
   };
