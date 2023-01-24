@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import theme from 'theme'
 
 export const PhoneBookDiv = styled.div`
+max-width: 420px;
+background-color: #d6d6d628;
     margin: 10px auto;
     padding: 10px;
     border: 1px solid #ccc;
