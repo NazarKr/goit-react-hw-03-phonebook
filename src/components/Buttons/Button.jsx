@@ -1,15 +1,19 @@
 import React from 'react';
-import { ButtonStyled } from './Button.style'
+import { ButtonStyled, ButtonText } from './Button.style'
 import PropTypes from 'prop-types';
 
 
-const Button = ({ type, text, onClick }) => {
+
+const Button = ({ icon: Icon = null, type, disabled, text, onClick, iconSize, }) => {
     return (
         <>
             <ButtonStyled
                 type={type}
-                onClick={onClick}
-            >{text}</ButtonStyled>
+                disabled={disabled}
+                onClick={onClick}          
+            >{Icon && <Icon size={iconSize} />}
+                <ButtonText Icon={Icon}>{text}</ButtonText>
+            </ButtonStyled>
         </>
     )
 }
@@ -17,6 +21,6 @@ const Button = ({ type, text, onClick }) => {
 export default Button;
 
 Button.propTypes = {
-    type: PropTypes.string.isRequired,
+    // type: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
 };

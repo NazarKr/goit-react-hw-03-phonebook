@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 import theme from 'theme';
 
 export const ButtonStyled = styled.button`
+    display: flex;
+    align-items: center;
     background-color: lightgray;
     color: ${theme.colors.text};
     padding: 10px 20px;
@@ -19,4 +21,8 @@ export const ButtonStyled = styled.button`
     @media (min-width: 420px) {
        font-size: ${theme.fontSizes.m};
       }
+`;
+
+export const ButtonText = styled.span`
+  margin-left: ${span => (span.Icon ? theme.space[3] : theme.space[0])};
 `;
