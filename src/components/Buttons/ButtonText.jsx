@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 
-const Button = ({ icon: Icon = null, type, disabled, text, onClick, iconSize, }) => {
+const ButtonTxt = ({ icon: Icon = null, type, disabled, text, onClick, iconSize, }) => {
     return (
         <>
             <ButtonStyled
@@ -19,9 +19,9 @@ const Button = ({ icon: Icon = null, type, disabled, text, onClick, iconSize, })
     )
 }
 
-export default Button;
+export default ButtonTxt;
 
-Button.propTypes = {
+ButtonTxt.propTypes = {
     icon: PropTypes.func,
     type: PropTypes.string.isRequired,
     disabled: PropTypes.bool,

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Formik, Field, Form } from 'formik';
 import { FormContainer, Label, MyField } from './FormicContact.styled';
-import Button from '../Buttons/Button';
+import ButtonTxt from '../Buttons/ButtonText';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import { AiOutlineUserAdd } from 'react-icons/ai';
@@ -56,7 +56,7 @@ class FormicContact extends Component {
                             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                             required
                         />
-                        <Button
+                        <ButtonTxt
                             type="submit"
                             text="Add contact"
                             icon={AiOutlineUserAdd}
@@ -65,7 +65,7 @@ class FormicContact extends Component {
                                 marginLeft: '20px'
                             }}
                         >
-                        </Button>
+                        </ButtonTxt>
                     </Form>
                 </Formik>
             </FormContainer>

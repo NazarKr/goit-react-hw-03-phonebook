@@ -24,5 +24,5 @@ export const ButtonStyled = styled.button`
 `;
 
 export const ButtonText = styled.p`
-  margin-left: ${p => (p.Icon ? theme.space[1] : theme.space[0])};
+  margin-left: ${p => (p.Icon ? theme.space[3] : theme.space[0])};
 `;
