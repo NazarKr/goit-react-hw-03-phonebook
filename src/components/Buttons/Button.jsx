@@ -12,6 +12,7 @@ const Button = ({ icon: Icon = null, type, disabled, text, onClick, iconSize, })
                 disabled={disabled}
                 onClick={onClick}          
             >{Icon && <Icon size={iconSize} />}
+                
                 <ButtonText Icon={Icon}>{text}</ButtonText>
             </ButtonStyled>
         </>
@@ -21,6 +22,10 @@ const Button = ({ icon: Icon = null, type, disabled, text, onClick, iconSize, })
 export default Button;
 
 Button.propTypes = {
-    // type: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    icon: PropTypes.func,
+    type: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    text: PropTypes.string,
+    onClick: PropTypes.func,
+    iconSize: PropTypes.number
 };

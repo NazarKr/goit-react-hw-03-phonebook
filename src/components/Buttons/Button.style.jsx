@@ -23,6 +23,6 @@ export const ButtonStyled = styled.button`
       }
 `;
 
-export const ButtonText = styled.span`
-  margin-left: ${span => (span.Icon ? theme.space[3] : theme.space[0])};
+export const ButtonText = styled.p`
+  margin-left: ${p => (p.Icon ? theme.space[1] : theme.space[0])};
 `;

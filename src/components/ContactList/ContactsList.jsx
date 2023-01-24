@@ -2,6 +2,8 @@ import React from 'react';
 import { ContactListUl, ContactItemLi, ContactName, ContactNumber } from './ContactsList.styled';
 import Button  from '../Buttons/Button';
 import PropTypes from 'prop-types';
+import { AiOutlineDelete } from 'react-icons/ai';
+
 
 const ContactsList = ({ contacts, onDeleteContact }) => {
     return (
@@ -11,9 +13,11 @@ const ContactsList = ({ contacts, onDeleteContact }) => {
                     <ContactName>{name}</ContactName>
                     <ContactNumber>{number}</ContactNumber>
                     <Button
-                        text="Delete"
+                        // text=''
                         type="submit"
                         onClick={() => onDeleteContact(id)}
+                        icon={AiOutlineDelete}
+                        iconSize={20}
                     >
                     </Button>
                 </ContactItemLi>))}

@@ -61,6 +61,9 @@ class FormicContact extends Component {
                             text="Add contact"
                             icon={AiOutlineUserAdd}
                             iconSize={20}
+                            style={{
+                                marginLeft: '20px'
+                            }}
                         >
                         </Button>
                     </Form>
