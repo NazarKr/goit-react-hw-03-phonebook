@@ -1,28 +1,47 @@
 import styled from '@emotion/styled'
+import theme from 'theme';
+import { FaSearch } from 'react-icons/fa';
 
 export const FilterContainer = styled.div`
     width: 80%;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 6px 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: ${theme.radii.normal};
     box-shadow: 0px 0px 20px -20px;
         &:hover {
-        border: 2px solid #ccc;
+         box-shadow: ${theme.shadow.medium};
         }
 `;
 
 export const FilterLabel = styled.label`
-    font-size: 18px;
-    font-weight: 600;
-    margin: 6px;
+    position: relative;
+
+    font-size: ${theme.fontSizes.s};
+    font-weight: ${theme.fontWeights.regular};;
+            @media (min-width: 420px) {
+       font-size: ${theme.fontSizes.m};
+      }
 `;
 
 export const FilterField = styled.input`
+    width: 50%;
     padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
+    padding-left: 35px;
+    font-size: ${theme.fontSizes.xs};
+    border-radius: ${theme.radii.normal};
     border: 1px solid #ccc;
     box-shadow: 0px 0px 20px -20px;
     width: 100%;
+                @media (min-width: 420px) {
+       font-size: ${theme.fontSizes.s};
+      }
+`;
+
+export const SearchIcon = styled(FaSearch)`
+    position: absolute;
+    top: 65%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #ccc;
 `;

@@ -8,7 +8,7 @@ const theme = {
     primary: '#E9EAEC',
     secondary: '#333652',
     accent: '#FAD02C',
-    muted: '#489fb5',
+    muted: '#808080',
   },
 
   fonts: {
@@ -46,7 +46,7 @@ const theme = {
 
   radii: {
     none: '0',
-    normal: '8px',
+    normal: '5px',
     high: '16px',
     round: '50%',
   },

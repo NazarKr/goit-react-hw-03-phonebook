@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContactListUl, ContactItemLi, ContactName } from './ContactsList.styled';
+import { ContactListUl, ContactItemLi, ContactName, ContactNumber } from './ContactsList.styled';
 import Button  from '../Buttons/Button';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ const ContactsList = ({ contacts, onDeleteContact }) => {
             {contacts.map(({ id, name, number }) => (
                 <ContactItemLi key={id}>
                     <ContactName>{name}</ContactName>
-                    <ContactName>{number}</ContactName>
+                    <ContactNumber>{number}</ContactNumber>
                     <Button
                         text="Delete"
                         type="submit"

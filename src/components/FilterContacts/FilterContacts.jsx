@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
-import { FilterContainer, FilterLabel, FilterField, } from './FilterContact.styled';
+import { FilterContainer, FilterLabel, FilterField, SearchIcon } from './FilterContact.styled';
 import PropTypes from 'prop-types';
 
 const Filter = ({ value, onChange, handleBlur }) => (
@@ -10,9 +10,11 @@ const Filter = ({ value, onChange, handleBlur }) => (
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center"
+                    alignItems: "center",
+                    width: "80%"
                 }}>
                 <FilterLabel>
+                    <SearchIcon />
             Find contacts by name
                     <Field
                         onBlur={handleBlur}
@@ -21,6 +23,7 @@ const Filter = ({ value, onChange, handleBlur }) => (
                         placeholder="Search"
                         value={value}
                         onChange={onChange} />
+
                 </FilterLabel>
         </Form>
         </Formik>
