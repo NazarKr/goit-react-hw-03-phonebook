@@ -4,14 +4,14 @@ import theme from 'theme'
 export const PhoneBookDiv = styled.div`
 max-width: 420px;
 background-color: #d6d6d628;
-    margin: 10px auto;
+    margin: 20px auto;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: ${theme.radii.normal};
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 0px 20px -20px;
+    box-shadow: ${theme.shadow.high};
     @media(min-width: 720px) {
         width: 50%;
       }

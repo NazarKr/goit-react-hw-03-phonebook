@@ -6,7 +6,7 @@ export const ButtonStyled = styled.button`
     align-items: center;
     background-color: lightgray;
     color: ${theme.colors.text};
-    padding: 10px 20px;
+    padding: 8px 20px;
     border-radius: ${theme.radii.normal};
     border: 1px solid darkgray;
     font-size: ${theme.fontSizes.s};
