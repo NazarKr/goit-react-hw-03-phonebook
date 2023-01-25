@@ -7,7 +7,7 @@ import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid'
 import initialContacts from './Data/Contact.json'
-import Notification from './Notiff'
+import Notification from './Notification/Notification'
 
 export class App extends Component {
   state = {

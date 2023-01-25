@@ -1,11 +1,11 @@
 
 import React from 'react';
-// import { TitleH3 } from './feedback.styled';
+import { NotificationText } from './Notification.style';
 import PropTypes from 'prop-types';
 
 const Notification = ({ message }) => (
     <>
-        {message && <h3>{message}</h3>}
+        {message && <NotificationText>{message}</NotificationText>}
     </>
 );
 
