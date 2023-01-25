@@ -7,22 +7,15 @@ import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid'
 import initialContacts from './Data/Contact.json'
+import Notification from './Notiff'
 
 export class App extends Component {
   state = {
     contacts: initialContacts,
-      // [
-      // { id: 'id-1', name: 'Jason Statham', number: '459-12-56' },
-      // { id: 'id-2', name: 'Sylvester Stallone', number: '443-89-12' },
-      // { id: 'id-3', name: 'Dolph Lundgren', number: '645-17-79' },
-      // { id: 'id-4', name: 'Arnold Schwarzenegger', number: '227-91-26' },
-    // ],
     filter: ''
   }
 
   componentDidMount() {
-    console.log('App componentDidMount');
-
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
 
@@ -32,13 +25,10 @@ export class App extends Component {
   };
 
   componentDidUpdate(prevState) {
-    console.log('App componentDidUpdate');
-
     const nextContacts = this.state.contacts;
     const prevContacts = prevState.contacts;
 
     if (nextContacts !== prevContacts) {
-      console.log('update contacts, add local');
       localStorage.setItem('contacts', JSON.stringify(nextContacts));
     }
   };
@@ -92,6 +82,7 @@ export class App extends Component {
         <PhoneBookH2>Contacts</PhoneBookH2>
         <FilterContact value={filter} onChange={this.changeFilter} />
 
+        {visibleContacts.length === 0 && <Notification message="There is no Contacts" />}
         <ContactsList
           contacts={visibleContacts}
           onDeleteContact={this.deleteContact}
