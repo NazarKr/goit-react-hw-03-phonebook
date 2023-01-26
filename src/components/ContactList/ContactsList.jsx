@@ -13,6 +13,7 @@ const ContactsList = ({ contacts, onDeleteContact }) => {
                     <ContactName>{name}</ContactName>
                     <ContactNumber>{number}</ContactNumber>
                     <ButtonIcon
+                        primary={true}
                         // text=''
                         type="submit"
                         onClick={() => onDeleteContact(id)}

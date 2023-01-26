@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import FilterContact from './FilterContacts/FilterContacts';
 import FormicContact from './FormContact/FormicContact';
 import ContactsList from './ContactList/ContactsList';
+import ModalWindow from './Modal/ModalWindow';
+import ButtonTxt from './Buttons/ButtonText';
+import { AiOutlineUserAdd } from 'react-icons/ai';
 import { PhoneBookDiv, PhoneBookH1, PhoneBookH2 } from './App.styled'
 import { ToastContainer, toast, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,7 +15,8 @@ import Notification from './Notification/Notification'
 export class App extends Component {
   state = {
     contacts: initialContacts,
-    filter: ''
+    filter: '',
+    showModal: false,
   }
 
   componentDidMount() {
@@ -49,6 +53,7 @@ export class App extends Component {
       }));
     }
     toast.success('Contact successfully added!');
+    this.toggleModal();
   };
 
   deleteContact = contactId => {
@@ -70,17 +75,40 @@ export class App extends Component {
     );
   };
 
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }))
+  }
+
   render() {
-    const { filter } = this.state;
+    const { filter, showModal } = this.state;
     const visibleContacts = this.getVisibleContacts();
+
 
     return (
       <PhoneBookDiv>
         <PhoneBookH1>Phonebook</PhoneBookH1>
-        <FormicContact onSubmit={this.addContact} />
+        <FilterContact value={filter} onChange={this.changeFilter} onClick={this.toggleModal} />
 
         <PhoneBookH2>Contacts</PhoneBookH2>
-        <FilterContact value={filter} onChange={this.changeFilter} />
+
+        <ButtonTxt
+          type="submit"
+          text="Add contact"
+          onClick={this.toggleModal}
+          icon={AiOutlineUserAdd}
+          iconSize={20}
+          style={{
+            marginLeft: '20px'
+          }}
+        />
+
+        {showModal && (
+          <ModalWindow onClose={this.toggleModal}>
+            <FormicContact onSubmit={this.addContact} onClick={this.toggleModal} />
+          </ModalWindow>
+        )}
 
         {visibleContacts.length === 0 && <Notification message="There is no Contacts" />}
         <ContactsList

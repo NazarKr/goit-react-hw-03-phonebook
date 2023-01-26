@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from 'theme';
 
 export const FormContainer = styled.div`
-background-color: #fff;
+    background-color: #fff;
     width: 80%;
     margin: 0 auto;
     padding: 10px 20px;
@@ -10,7 +10,7 @@ background-color: #fff;
     border-radius: ${theme.radii.normal};
     box-shadow: 0px 0px 20px -20px;
         &:hover {
-         box-shadow: ${theme.shadow.medium};
+         /* box-shadow: ${theme.shadow.medium}; */
         }
 `;
 

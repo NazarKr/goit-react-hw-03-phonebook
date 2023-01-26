@@ -15,7 +15,7 @@ const Filter = ({ value, onChange, handleBlur }) => (
                 }}>
                 <FilterLabel>
                     <SearchIcon />
-            Find contacts by name
+                    Find contacts by name
                     <Field
                         onBlur={handleBlur}
                         as={FilterField}
@@ -23,9 +23,8 @@ const Filter = ({ value, onChange, handleBlur }) => (
                         placeholder="Search"
                         value={value}
                         onChange={onChange} />
-
                 </FilterLabel>
-        </Form>
+            </Form>
         </Formik>
     </FilterContainer>
 );
@@ -34,6 +33,6 @@ export default Filter;
 
 Filter.propTypes = {
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired, 
+    onChange: PropTypes.func.isRequired,
     handleBlur: PropTypes.func,
 }
