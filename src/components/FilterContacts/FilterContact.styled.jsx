@@ -3,7 +3,7 @@ import theme from 'theme';
 import { FaSearch } from 'react-icons/fa';
 
 export const FilterContainer = styled.div`
-background-color: #fff;
+    background-color: #fff;
     width: 80%;
     margin: 0 auto;
     padding: 6px 20px;

@@ -1,25 +1,30 @@
 import React from 'react';
-import { ButtonStyled, } from './ButtonIcon.style'
+import { ButtoIconStyled } from './ButtonIcon.style'
 import PropTypes from 'prop-types';
 
 
 
-const ButtonIcon = ({ icon: Icon = null, type, disabled, children, onClick, iconSize, }) => {
+const ButtonIcon = ({ icon: Icon = null, type, disabled, children, onClick, iconSize, primary }) => {
     return (
         <>
-            <ButtonStyled
+            <ButtoIconStyled
+                primary={primary}
                 type={type}
                 disabled={disabled}
                 onClick={onClick}
             >{Icon && <Icon size={iconSize} />}
 
-                <p>{children}</p>
-            </ButtonStyled>
+                {children}
+            </ButtoIconStyled>
         </>
     )
 }
 
-export default ButtonIcon;
+ButtonIcon.defaultProps = {
+    onClick: () => null,
+    children: null,
+    // primary: null,
+};
 
 ButtonIcon.propTypes = {
     icon: PropTypes.func,
@@ -29,3 +34,5 @@ ButtonIcon.propTypes = {
     onClick: PropTypes.func,
     iconSize: PropTypes.number
 };
+
+export default ButtonIcon;
