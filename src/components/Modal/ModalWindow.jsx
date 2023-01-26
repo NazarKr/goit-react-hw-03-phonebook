@@ -17,18 +17,13 @@ class ModalWindow extends Component {
 
     handleKeyDown = e => {
         if (e.code === 'Escape') {
-            console.log('Нажали ESC, нужно закрыть модалку');
-
+            // console.log('Нажав ESC');
             this.props.onClose();
         }
     };
 
     handleBackdropClick = event => {
-        // console.log('Кликнули в бекдроп');
-
-        // console.log('currentTarget: ', event.currentTarget);
-        // console.log('target: ', event.target);
-
+        // console.log('в бекдроп');
         if (event.currentTarget === event.target) {
             this.props.onClose();
         }
