@@ -22,16 +22,3 @@ color: ${props => props.primary ? "{theme.colors.text}" : "white" };
        font-size: ${theme.fontSizes.m};
       }
 `;
-
-// export const AddButton = styled(ButtoIconStyled)`
-//           position: absolute;
-//           background-color: green;
-//     `;
-
-// export const TomatoButton = styled(ButtoIconStyled)`
-//   color: tomato;
-//   border-color: tomato;
-// `;
-
-// background: ${ props => props.primary ? "lightgray" : "green" };
-// color: ${ props => props.primary ? "${theme.colors.text}" : "white" };

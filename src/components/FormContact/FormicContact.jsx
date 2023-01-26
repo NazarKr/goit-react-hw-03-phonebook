@@ -43,7 +43,6 @@ class FormicContact extends Component {
                             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                             required
                         />
-
                         <Label htmlFor={this.numberId}>Number</Label>
                         <Field
                             as={MyField}
